@@ -1,0 +1,28 @@
+Model:
+    1 entree = le var[0] = prix de la -ieme heure (je peux faire var[-10000])
+    1 sortie = le % d'investissement. Le score se fera tous les jours
+
+Score & Optimisation:
+    On parcour tous les prixs d'une traite, une fois.
+    Le model retro-propa a chaque nouvelle heure.
+    Et donc met a jour les parametres petit a petit.
+    Le `alpha` est mis a jour a un certain rithme avec des f(x+,y+)-f(x+)-f(y+)+f()
+    
+Mutabilitee:
+    Toute notion d'instruction, de cellule ou autre, liee a un model, disparait.
+    J'implemente ce que je veux exactement a chaque fois dans un nouveau model.
+    Si je veux tester un truc de selection naturelle je peux.
+
+    Chaque model doit avoire:
+        generique(graine) -> mdl
+        cree_mdl(graine) -> mdl
+        liberer_mdl(graine)
+        F(x, heure)
+        F'(x, heure, erreur)   //avec directement la mise a jour des poids
+        muter(mdl) -> mdl
+        melanger(mdl0, mdl1) -> mdl
+        
+    Exemples:
+        - Pourquoi pas un model avec un system d'instructions
+        - Filtres
+        - Un reseau de neurones avec en choix simplement les connections et les instructions des connections
